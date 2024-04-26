@@ -21,7 +21,7 @@ function App() {
       <div className=" bg-zinc-50 flex justify-center pb-3">
         <SearchBar updateUrl={updateUrl} />
       </div>
-      <div className="flex flex-wrap gap-4 justify-center">
+      <div className="flex flex-wrap justify-center">
         {data.map((recipe) => (
           <Card
             key={recipe.id}

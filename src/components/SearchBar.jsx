@@ -1,10 +1,15 @@
 import { useState } from "react";
 
+// eslint-disable-next-line react/prop-types
 export const SearchBar = ({ updateUrl }) => {
   const [value, setValue] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     const srcUrl = `${value}`;
+    updateUrl(srcUrl);
+  };
+  const handleReset = () => {
+    const srcUrl = ``;
     updateUrl(srcUrl);
   };
   const handleInput = (e) => {
@@ -24,6 +29,13 @@ export const SearchBar = ({ updateUrl }) => {
         onClick={handleSubmit}
       >
         Search
+      </button>
+      <button
+        type="reset"
+        className="text-zinc-300 bg-black hover:cursor-pointer"
+        onClick={handleReset}
+      >
+        Reset
       </button>
     </form>
   );

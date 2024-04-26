@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { List } from "./List";
 
 export const Card = ({ title, instructions, ingredients, image }) => {
