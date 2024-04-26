@@ -1,19 +1,26 @@
 import "./App.css";
 import { Card } from "./components/Card";
 import { Navbar } from "./components/Navbar";
+import { SearchBar } from "./components/SearchBar";
 import { useState, useEffect } from "react";
 
 function App() {
   const [data, setData] = useState([]);
-  const urlData = "https://dummyjson.com/recipes";
+  const [url, setUrl] = useState(["https://dummyjson.com/recipes"]);
+  const updateUrl = (srcUrl) => {
+    setUrl(`https://dummyjson.com/recipes${srcUrl}`);
+  };
   useEffect(() => {
-    fetch(urlData)
+    fetch(url)
       .then((response) => response.json())
       .then((data) => setData(data.recipes));
-  });
+  }, [url]);
   return (
     <>
       <Navbar />
+      <div className=" bg-zinc-50 flex justify-center pb-3">
+        <SearchBar updateUrl={updateUrl} />
+      </div>
       <div className="flex flex-wrap gap-4 justify-center">
         {data.map((recipe) => (
           <Card
