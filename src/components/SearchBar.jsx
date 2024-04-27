@@ -20,7 +20,7 @@ export const SearchBar = ({ updateUrl }) => {
       <input
         type="text"
         placeholder="search recipes"
-        className=" bg-slate-700 text-white rounded-lg h-11 text-center min-w-40"
+        className=" bg-slate-700 text-white rounded-lg p-3 text-center lg:min-w-40 mr-1"
         onChange={handleInput}
       />
       <button
