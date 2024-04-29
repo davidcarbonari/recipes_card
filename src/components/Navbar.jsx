@@ -8,8 +8,8 @@ export const Navbar = () => {
   const srcData = useSelector((state) => `${state.srcDataImput.value}`);
   return (
     <div className="p-3">
-      <ul className="flex flex-wrap text-black text-center justify-between">
-        <li className="p-2.5 min-w-40">
+      <ul className="flex flex-wrap text-black text-center justify-between text-lg">
+        <li className="p-2.5 min-w-40 ">
           <Link to={"/"}>Home</Link>
         </li>
         <li

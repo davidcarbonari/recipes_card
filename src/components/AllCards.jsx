@@ -26,8 +26,13 @@ export const AllCards = () => {
             All DummyJSON`s recipes
           </h1>
         </div>
+        <div className="text-center m-auto ">
+          <h2 className="text-black font-medium text-3xl p-6">
+            Select a recipes for more info
+          </h2>
+        </div>
       </div>
-      <div className="grid grid-col lg:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 justify-center">
+      <div className="grid grid-col lg:grid-cols-2  xl:grid-cols-3 justify-center">
         {srcData == ""
           ? data.map((recipe) => (
               <Card
@@ -36,6 +41,12 @@ export const AllCards = () => {
                 ingredients={recipe.ingredients}
                 image={recipe.image}
                 instructions={recipe.instructions}
+                prepTimeMinutes={recipe.prepTimeMinutes}
+                cookTimeMinutes={recipe.cookTimeMinutes}
+                cuisine={recipe.cuisine}
+                servings={recipe.servings}
+                difficulty={recipe.difficulty}
+                rating={recipe.rating}
               />
             ))
           : data
@@ -53,6 +64,12 @@ export const AllCards = () => {
                   ingredients={recipe.ingredients}
                   image={recipe.image}
                   instructions={recipe.instructions}
+                  prepTimeMinutes={recipe.prepTimeMinutes}
+                  cookTimeMinutes={recipe.cookTimeMinutes}
+                  cuisine={recipe.cuisine}
+                  servings={recipe.servings}
+                  difficulty={recipe.difficulty}
+                  rating={recipe.rating}
                 />
               ))}
       </div>
