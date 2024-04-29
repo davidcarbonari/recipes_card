@@ -20,7 +20,7 @@ export const Card = ({
   rating,
 }) => {
   return (
-    <div className="flex flex-col m-6 p-5 text-center rounded-3xl bg-slate-700 max-w-md shadow-lg transition-transform duration-300 transform hover:scale-105 shadow-black">
+    <div className="flex flex-col m-6 p-5 text-center rounded-3xl bg-gradient-to-tl from-slate-400 to-slate-700 max-w-lg shadow-lg transition-transform duration-300 transform hover:scale-105 shadow-black">
       <div>
         <h2 className="text-red-500 font-thin text-3xl m-3">{title}</h2>
         <div>
@@ -38,7 +38,7 @@ export const Card = ({
             {cuisine}
           </p>
           <p>
-            <FontAwesomeIcon icon={faPerson} className="mr-1" /> Servings:
+            <FontAwesomeIcon icon={faPerson} className="mr-1" /> Servings:{" "}
             {servings} people
           </p>
           <p>Difficulty: {difficulty}</p>

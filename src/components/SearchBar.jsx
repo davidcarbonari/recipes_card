@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 export const SearchBar = () => {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+    // e.preventDefault();
     dispatch(srcDataImput(value));
     setValue("");
     console.log(value);
@@ -24,14 +24,16 @@ export const SearchBar = () => {
         value={value}
         required
       />
-      <button
-        type="submit"
-        className="bg-zinc-300 text-black hover:cursor-pointer  shadow-black shadow-md transition-transform duration-300 transform hover:scale-105"
-        onClick={handleSubmit}
-        disabled={value == null ? true : false}
-      >
-        <Link to={"/recipes"}>Search</Link>
-      </button>
+      <Link to={"/recipes"}>
+        <button
+          type="submit"
+          className="bg-zinc-300 text-black hover:cursor-pointer  shadow-black shadow-md transition-transform duration-300 transform hover:scale-105"
+          onClick={handleSubmit}
+          disabled={value == null ? true : false}
+        >
+          Search
+        </button>
+      </Link>
     </form>
   );
 };

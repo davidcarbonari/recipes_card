@@ -7,8 +7,8 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const srcData = useSelector((state) => `${state.srcDataImput.value}`);
   return (
-    <div className="p-3">
-      <ul className="flex flex-wrap text-black text-center justify-between text-lg">
+    <div className="p-3 bg-origin-padding from-zinc-50 to-zinc-300">
+      <ul className=" text-black text-center text-lg grid grid-cols-1 md:grid-cols-3">
         <li className="p-2.5 min-w-40 ">
           <Link to={"/"}>Home</Link>
         </li>
@@ -17,7 +17,7 @@ export const Navbar = () => {
           onClick={() => dispatch(srcDataImput(""))}
         >
           <Link to={`/recipes`} key={srcData}>
-            All Recipes
+            Recipes
           </Link>
         </li>
         <li className="align-center px-3">
