@@ -17,18 +17,6 @@ export const AllCards = () => {
   }, []);
   dispatch(putData(data));
   console.log(data[0]);
-  // const [url, setUrl] = useState(["https://dummyjson.com/recipes?limit=50"]);
-  // const updateUrl = (srcUrl) => {
-  //   setUrl(`https://dummyjson.com/recipes${srcUrl}`);
-  // };
-  // const url = "https://dummyjson.com/recipes?limit=50";
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data.recipes));
-  //   dispatch(loadData(data));
-  // }, []);
-
   return (
     <Link to={`/recipes`}>
       <div className="bg-zinc-50">

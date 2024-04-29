@@ -10,17 +10,9 @@ export const SearchBar = () => {
     dispatch(srcDataImput(value));
     setValue("");
     console.log(value);
-    // const srcUrl = `${value}`;
-    // updateUrl(srcUrl);
   };
-  // const handleReset = () => {
-  //   dispatch(srcUrl());
-  //   // updateUrl(srcUrl);
-  // };
   const handleInput = (e) => {
-    // setValue(`/search?q=${e.target.value}`);
     setValue(`${e.target.value}`);
-    // console.log("handleInput " + value);
   };
   return (
     <form>
@@ -40,13 +32,6 @@ export const SearchBar = () => {
       >
         <Link to={"/recipes"}>Search</Link>
       </button>
-      {/* <button
-        type="reset"
-        className="text-zinc-300 bg-black hover:cursor-pointer"
-        onClick={handleReset}
-      >
-        <Link to={"/"}>Search</Link>
-      </button> */}
     </form>
   );
 };

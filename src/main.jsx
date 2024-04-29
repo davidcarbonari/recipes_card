@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AllCards } from "./components/AllCards";
 import store from "./redux/store";
 import { Provider } from "react-redux";
-// import { SrcCard } from "./components/SrcCard.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,10 +15,6 @@ const router = createBrowserRouter([
     path: "/recipes",
     element: <AllCards />,
   },
-  // {
-  //   path: "/recipes/:srcData",
-  //   element: <SrcCard />,
-  // },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
