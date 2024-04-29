@@ -2,6 +2,10 @@ import "./App.css";
 // import { Card } from "./components/Card";
 import { Navbar } from "./components/Navbar";
 import { Link } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { putData } from "./redux/dataSlice";
+
 function App() {
   // const [data, setData] = useState([]);
   // const [url, setUrl] = useState(["https://dummyjson.com/recipes?limit=50"]);
