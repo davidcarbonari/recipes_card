@@ -6,15 +6,18 @@ import { Navbar } from "./Navbar";
 import { Card } from "./Card";
 
 export const AllCards = () => {
+  const dataCards = useSelector((state) => state.putData.value);
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const srcData = useSelector((state) => `${state.srcDataImput.value}`);
   const url = "https://dummyjson.com/recipes?limit=50";
   useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setData(data.recipes));
-  }, []);
+    dataCards.length == 0
+      ? fetch(url)
+          .then((response) => response.json())
+          .then((data) => setData(data.recipes))
+      : setData(dataCards);
+  }, [dataCards]);
   dispatch(putData(data));
   return (
     <Link to={`/recipes`}>
@@ -34,7 +37,7 @@ export const AllCards = () => {
         </div>
         <div className="grid grid-col lg:grid-cols-2  xl:grid-cols-3 justify-center">
           {srcData == ""
-            ? data.map((recipe) => (
+            ? dataCards.map((recipe) => (
                 <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
                   <Card
                     // key={recipe.id}

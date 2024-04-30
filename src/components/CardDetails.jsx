@@ -12,14 +12,12 @@ import {
   faListOl,
   faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
-import { srcDataImput } from "../redux/srcDataSlice";
 export const CardDetails = () => {
   const { cardId } = useParams();
   const card = useSelector((state) =>
     state.putData.value.filter((recipe) => recipe.id == cardId.toString())
   );
-  const dispatch = useDispatch();
+
   return (
     <div>
       <Navbar></Navbar>
@@ -34,7 +32,7 @@ export const CardDetails = () => {
               <Link
                 to={"/recipes"}
                 className="text-black"
-                onClick={() => dispatch(srcDataImput(""))}
+                // onClick={() => dispatch(srcDataImput(""))}
               >
                 <FontAwesomeIcon
                   icon={faCircleXmark}
