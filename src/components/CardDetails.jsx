@@ -42,6 +42,12 @@ export const CardDetails = () => {
       favContainer = [...favContainer, card[0]];
       localStorage.setItem("favContainer", JSON.stringify(favContainer));
       setIsSaved(true);
+    } else {
+      favContainer = favContainer.filter(
+        (savedCard) => savedCard.id !== card[0].id
+      );
+      localStorage.setItem("favContainer", JSON.stringify(favContainer));
+      setIsSaved(false);
     }
   };
 
@@ -59,11 +65,7 @@ export const CardDetails = () => {
             </div>
 
             <div className="flex justify-center col-span-1 text-3xl pt-4">
-              <Link
-                to={"/recipes"}
-                className="text-black"
-                // onClick={() => dispatch(srcDataImput(""))}
-              >
+              <Link to={"/recipes"} className="text-black">
                 <FontAwesomeIcon
                   icon={faCircleXmark}
                   className="hover:cursor-pointer shadow-md rounded-full shadow-zinc-600 transition-transform duration-300 transform hover:scale-125"
@@ -127,11 +129,17 @@ export const CardDetails = () => {
           </div>
           <div className="flex justify-center mb-3 ">
             <button
-              className="bg-zinc-300 text-black hover:cursor-pointer  shadow-black shadow-md transition-transform duration-300 transform hover:scale-105 disabled:bg-slate-700 disabled:text-white"
+              className={` hover:cursor-pointer  shadow-black shadow-md transition-transform duration-300 transform hover:scale-105 ${
+                !isSaved ? "bg-zinc-300 text-black" : "bg-slate-700 text-white"
+              } `}
               onClick={handleFavorites}
-              disabled={isSaved}
             >
-              {isSaved ? "Saved in your favorites" : "Add to your favorites"}
+              {!isSaved
+                ? "Add to your favorites"
+                : "Remove from your favourites"}
+            </button>
+            <button className="hover:cursor-pointer  shadow-black shadow-md transition-transform duration-300 transform hover:scale-105 ml-2 bg-zinc-700">
+              <Link to={"/favourites"}>Go to your favorites</Link>
             </button>
           </div>
         </div>

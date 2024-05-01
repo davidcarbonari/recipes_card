@@ -31,7 +31,7 @@ export const AllCards = () => {
           </div>
           <div className="text-center m-auto ">
             <h2 className="text-black font-medium text-3xl p-6">
-              Select a recipes for more info
+              {"Select a recipes for more info"}
             </h2>
           </div>
         </div>

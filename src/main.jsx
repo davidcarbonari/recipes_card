@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AllCards } from "./components/AllCards";
 import { CardDetails } from "./components/CardDetails.jsx";
+import { FavouritesCards } from "./components/FavouritesCards.jsx";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 const router = createBrowserRouter([
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     element: <AllCards />,
   },
   { path: "/recipes/:cardId", element: <CardDetails /> },
+  { path: "/favourites", element: <FavouritesCards /> },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
