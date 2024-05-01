@@ -8,19 +8,19 @@ export const Navbar = () => {
   const srcData = useSelector((state) => `${state.srcDataImput.value}`);
   return (
     <div className="p-3 bg-origin-padding from-zinc-50 to-zinc-300">
-      <ul className=" text-black text-center text-lg grid grid-cols-1 md:grid-cols-3">
-        <li className="p-2.5 min-w-40 ">
+      <ul className=" text-black text-center text-lg grid grid-cols-1 lg:grid-cols-3">
+        <li className="p-2.5 lg:min-w-40 ">
           <Link to={"/"}>Home</Link>
         </li>
         <li
-          className="p-2.5 min-w-40"
+          className="p-2.5 lg:min-w-40"
           onClick={() => dispatch(srcDataImput(""))}
         >
           <Link to={`/recipes`} key={srcData}>
             Recipes
           </Link>
         </li>
-        <li className="align-center px-3">
+        <li className="align-center">
           <SearchBar />
         </li>
       </ul>

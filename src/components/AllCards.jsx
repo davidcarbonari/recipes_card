@@ -24,7 +24,7 @@ export const AllCards = () => {
       <div className="bg-origin-padding from-zinc-50 to-zinc-900">
         <div className="bg-zinc-50">
           <Navbar></Navbar>
-          <div className="text-center m-auto md:mt-24">
+          <div className="text-center m-auto md:mt-3">
             <h1 className="text-red-800 font-medium p-6">
               All DummyJSON`s recipes
             </h1>

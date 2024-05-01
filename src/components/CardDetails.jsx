@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Navbar } from "./Navbar";
 import { List } from "./List";
 import { useSelector } from "react-redux";
@@ -17,12 +18,41 @@ export const CardDetails = () => {
   const card = useSelector((state) =>
     state.putData.value.filter((recipe) => recipe.id == cardId.toString())
   );
+  useEffect(() => {
+    let favContCheck = localStorage.getItem("favContainer")
+      ? JSON.parse(localStorage.getItem("favContainer"))
+      : [];
+
+    const isAlreadySaved = favContCheck.some(
+      (favContCheck) => favContCheck.id === card[0].id
+    );
+    isAlreadySaved ? setIsSaved(true) : setIsSaved(false);
+  }, []);
+  const [isSaved, setIsSaved] = useState(false);
+
+  const handleFavorites = () => {
+    const favContainerString = localStorage.getItem("favContainer");
+    let favContainer = favContainerString ? JSON.parse(favContainerString) : [];
+
+    const isAlreadySaved = favContainer.some(
+      (favContainer) => favContainer.id === card[0].id
+    );
+
+    if (!isAlreadySaved) {
+      favContainer = [...favContainer, card[0]];
+      localStorage.setItem("favContainer", JSON.stringify(favContainer));
+      setIsSaved(true);
+    }
+  };
 
   return (
     <div>
       <Navbar></Navbar>
-      <div className="md:py-28">
-        <div className="p-5 rounded-3xl shadow-lg shadow-black m-3 bg-gradient-to-tl from-zinc-50 to-zinc-200">
+      <div className="md:py-3">
+        <div
+          id="card"
+          className="p-5 rounded-3xl shadow-lg shadow-black m-3 bg-gradient-to-tl from-zinc-50 to-zinc-200"
+        >
           <div className="text-center m-auto grid grid-cols-10">
             <div className="col-span-9">
               <h1 className="text-red-800 font-medium p-6">{card[0].name}</h1>
@@ -94,6 +124,15 @@ export const CardDetails = () => {
                 ))}
               </ul>
             </div>
+          </div>
+          <div className="flex justify-center mb-3 ">
+            <button
+              className="bg-zinc-300 text-black hover:cursor-pointer  shadow-black shadow-md transition-transform duration-300 transform hover:scale-105 disabled:bg-slate-700 disabled:text-white"
+              onClick={handleFavorites}
+              disabled={isSaved}
+            >
+              {isSaved ? "Saved in your favorites" : "Add to your favorites"}
+            </button>
           </div>
         </div>
       </div>

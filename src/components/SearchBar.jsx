@@ -19,7 +19,7 @@ export const SearchBar = () => {
       <input
         type="text"
         placeholder="search recipes"
-        className=" bg-slate-700 text-white rounded-lg p-3 text-center lg:min-w-40 mr-3 shadow-black shadow-md transition-transform duration-300 transform hover:scale-105"
+        className=" bg-slate-700 text-white rounded-lg p-3 text-center mr-3 shadow-black shadow-md transition-transform duration-300 transform hover:scale-105"
         onChange={handleInput}
         value={value}
         required
