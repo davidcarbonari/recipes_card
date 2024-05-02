@@ -19,7 +19,9 @@ const router = createBrowserRouter([
   },
   { path: "/recipes/:cardId", element: <CardDetails /> },
   { path: "/favourites", element: <FavouritesCards /> },
+  { path: "/favourites/:cardId", element: <CardDetails /> },
 ]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>

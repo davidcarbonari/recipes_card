@@ -30,7 +30,7 @@ export const FavouritesCards = () => {
       >
         {favContainer.length > 0 ? (
           favContainer.map((recipe) => (
-            <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
+            <Link to={`/favourites/${recipe.id}`} key={recipe.id}>
               <Card
                 title={recipe.name}
                 ingredients={recipe.ingredients}

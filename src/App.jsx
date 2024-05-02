@@ -1,10 +1,20 @@
 import "./App.css";
+import { useEffect, useState } from "react";
 import { Navbar } from "./components/Navbar";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { srcDataImput } from "./redux/srcDataSlice";
+import { putData } from "./redux/dataSlice";
 function App() {
+  const [data, setData] = useState([]);
+  const url = "https://dummyjson.com/recipes?limit=50";
   const dispatch = useDispatch();
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setData(data.recipes));
+  }, []);
+  dispatch(putData(data));
   return (
     <Link to={`/`}>
       <div className=" bg-zinc-50 pb-16 ">

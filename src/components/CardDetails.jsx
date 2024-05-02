@@ -15,9 +15,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 export const CardDetails = () => {
   const { cardId } = useParams();
-  const card = useSelector((state) =>
-    state.putData.value.filter((recipe) => recipe.id == cardId.toString())
-  );
+  const cards = useSelector((state) => state.putData.value);
+  const card = cards.filter((recipe) => recipe.id == cardId.toString());
+
   useEffect(() => {
     let favContCheck = localStorage.getItem("favContainer")
       ? JSON.parse(localStorage.getItem("favContainer"))
