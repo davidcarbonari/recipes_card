@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// import { List } from "./List";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClock,
@@ -9,8 +8,6 @@ import {
 
 export const Card = ({
   title,
-  // instructions,
-  // ingredients,
   image,
   prepTimeMinutes,
   cookTimeMinutes,
@@ -45,25 +42,10 @@ export const Card = ({
           <p>Rating: {rating} </p>
         </div>
 
-        {/* <FontAwesomeIcon icon={} /> */}
         <div className="my-6">
           <img src={image} alt={title} className="block w-full" />
         </div>
-        {/* <ul className="flex flex-wrap list-disc m-3">
-          {ingredients.map((ingredient, index) => (
-            <List key={index}>{ingredient}</List>
-          ))}
-        </ul> */}
       </div>
-      {/* 
-      <div>
-        <h3 className="text-xl text-zinc-300 m-3">Instruction</h3>
-        <ul className="text-zinc-400 m-3 list-disc text-left">
-          {instructions.map((instruction, index) => (
-            <List key={index}>{instruction}</List>
-          ))}
-        </ul>
-      </div> */}
     </div>
   );
 };

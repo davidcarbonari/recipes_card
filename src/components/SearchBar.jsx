@@ -6,7 +6,6 @@ export const SearchBar = () => {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
   const handleSubmit = () => {
-    // e.preventDefault();
     dispatch(srcDataImput(value));
     setValue("");
     console.log(value);

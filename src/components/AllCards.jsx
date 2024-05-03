@@ -1,24 +1,11 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import { putData } from "../redux/dataSlice";
-// import { useEffect, useState } from "react";
 import { Navbar } from "./Navbar";
 import { Card } from "./Card";
 
 export const AllCards = () => {
   const data = useSelector((state) => state.putData.value);
-  // const [data, setData] = useState([]);
-  // const dispatch = useDispatch();
   const srcData = useSelector((state) => `${state.srcDataImput.value}`);
-  // const url = "https://dummyjson.com/recipes?limit=50";
-  // useEffect(() => {
-  //   dataCards.length == 0
-  //     ? fetch(url)
-  //         .then((response) => response.json())
-  //         .then((data) => setData(data.recipes))
-  //     : setData(dataCards);
-  // }, [dataCards]);
-  // dispatch(putData(data));
   return (
     <Link to={`/recipes`}>
       <div className="bg-origin-padding from-zinc-50 to-zinc-900">
@@ -40,7 +27,6 @@ export const AllCards = () => {
             ? data.map((recipe) => (
                 <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
                   <Card
-                    // key={recipe.id}
                     title={recipe.name}
                     ingredients={recipe.ingredients}
                     image={recipe.image}
@@ -68,7 +54,6 @@ export const AllCards = () => {
                 .map((recipe) => (
                   <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
                     <Card
-                      // key={recipe.id}
                       title={recipe.name}
                       ingredients={recipe.ingredients}
                       image={recipe.image}
